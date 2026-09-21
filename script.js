@@ -58,6 +58,9 @@ function displayWeather(data) {
   message.textContent = "";
   weatherCard.classList.remove("hidden");
 
+  const weatherMain = data.weather[0].main;
+  updateWeatherTheme(weatherMain);
+
   locationElement.textContent = `${data.name}, ${data.sys.country}`;
   description.textContent = data.weather[0].description;
   temperature.textContent = `${Math.round(data.main.temp)}°C`;
@@ -65,10 +68,28 @@ function displayWeather(data) {
   humidity.textContent = `${data.main.humidity}%`;
   windSpeed.textContent = `${data.wind.speed} m/s`;
 
-  weatherIcon.src =
-    `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
-
+  weatherIcon.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
   weatherIcon.alt = data.weather[0].description;
+}
+
+function updateWeatherTheme(weatherMain) {
+  const themeMap = {
+    Clear: "clear",
+    Clouds: "clouds",
+    Rain: "rain",
+    Drizzle: "rain",
+    Thunderstorm: "storm",
+    Snow: "snow",
+    Mist: "mist",
+    Smoke: "mist",
+    Haze: "mist",
+    Fog: "mist",
+    Dust: "mist",
+    Sand: "mist",
+    Ash: "mist"
+  };
+
+  document.body.dataset.weather = themeMap[weatherMain] || "default";
 }
 
 function showLoading() {
@@ -79,6 +100,6 @@ function showLoading() {
 
 function showError(errorMessage) {
   message.textContent = errorMessage;
-  message.style.color = "#ff6b6b";
+  message.style.color = "#fda4af";
   weatherCard.classList.add("hidden");
 }
