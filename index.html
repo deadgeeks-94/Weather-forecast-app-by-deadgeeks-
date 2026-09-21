@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather Forecast</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="weather-app">
+    <div class="header">
+      <h1>Weather Forecast</h1>
+    </div>
+
+    <form id="weatherForm">
+      <input
+        type="text"
+        id="cityInput"
+        placeholder="Enter city or country"
+        value="London"
+        required
+      />
+      <button type="submit">Search</button>
+    </form>
+
+    <p id="message" class="message"></p>
+
+    <section id="weatherCard" class="weather-card hidden">
+      <div class="location-row">
+        <h2 id="location"></h2>
+      </div>
+
+      <div class="weather-main">
+        <img id="weatherIcon" src="" alt="Weather icon" />
+        <p id="description" class="description"></p>
+      </div>
+
+      <p id="temperature" class="temperature"></p>
+
+      <div class="details">
+        <div class="detail-box">
+          <span>Feels like</span>
+          <strong id="feelsLike"></strong>
+        </div>
+        <div class="detail-box">
+          <span>Humidity</span>
+          <strong id="humidity"></strong>
+        </div>
+        <div class="detail-box">
+          <span>Wind speed</span>
+          <strong id="windSpeed"></strong>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

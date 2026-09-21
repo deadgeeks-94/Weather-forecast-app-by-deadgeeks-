@@ -1,0 +1,167 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #4CB5F5, #7FE7DC);
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+.weather-app {
+  width: 100%;
+  max-width: 600px;
+  background: rgba(15, 15, 15, 0.92);
+  border-radius: 22px;
+  padding: 28px 24px 24px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+  color: white;
+}
+
+.header h1 {
+  margin: 0 0 24px;
+  text-align: center;
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  color: #9fd4ff;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+input {
+  flex: 1;
+  padding: 18px 16px;
+  border-radius: 12px;
+  border: 1px solid #666;
+  background: #3a3a3a;
+  color: white;
+  font-size: 1.15rem;
+  outline: none;
+}
+
+input:focus {
+  border-color: #9fd4ff;
+}
+
+button {
+  padding: 18px 22px;
+  border: none;
+  border-radius: 12px;
+  background: #1B72C2;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+button:hover {
+  background: #2f8ee2;
+}
+
+.message {
+  min-height: 24px;
+  margin: 10px 0 18px;
+  color: #ff6b6b;
+  font-size: 1.05rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+.weather-card {
+  background: #202020;
+  border-radius: 16px;
+  padding: 20px;
+}
+
+.hidden {
+  display: none;
+}
+
+.location-row {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.location-row h2 {
+  margin: 0;
+  font-size: clamp(1.7rem, 4vw, 2.4rem);
+  color: #a8d6ff;
+}
+
+.weather-main {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#weatherIcon {
+  width: 90px;
+  height: 90px;
+  filter: drop-shadow(0 0 6px rgba(255,255,255,0.2));
+}
+
+.description {
+  margin: 10px 0 0;
+  text-transform: capitalize;
+  color: #dfe8ef;
+  font-size: 1.15rem;
+}
+
+.temperature {
+  margin: 0 0 20px;
+  font-size: clamp(2.2rem, 6vw, 3.8rem);
+  font-weight: bold;
+  text-align: center;
+  color: white;
+}
+
+.details {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.detail-box {
+  background: #2d2d2d;
+  border-radius: 12px;
+  padding: 14px 10px;
+  text-align: center;
+}
+
+.detail-box span {
+  display: block;
+  color: #c0c0c0;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+
+.detail-box strong {
+  color: white;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 600px) {
+  .weather-app {
+    padding: 20px 16px;
+  }
+
+  form {
+    flex-direction: column;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  .details {
+    grid-template-columns: 1fr;
+  }
+}
