@@ -3,54 +3,78 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#172554" />
   <title>Weather Forecast</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <main class="weather-app">
-    <div class="header">
-      <h1>Weather Forecast</h1>
-    </div>
+    <header class="hero">
+      <div class="brand-mark" aria-hidden="true">☀</div>
+      <div>
+        <p class="eyebrow">YOUR DAILY FORECAST</p>
+        <h1>Weather Forecast</h1>
+        <p class="subtitle">Check the weather anywhere in the world.</p>
+      </div>
+    </header>
 
-    <form id="weatherForm">
-      <input
-        type="text"
-        id="cityInput"
-        placeholder="Enter city or country"
-        required
-      />
-      <button type="submit">Search</button>
+    <form id="weatherForm" class="search-form">
+      <label class="sr-only" for="cityInput">City or country</label>
+      <div class="search-input-wrap">
+        <span aria-hidden="true">⌕</span>
+        <input
+          type="text"
+          id="cityInput"
+          placeholder="Search a city or country"
+          autocomplete="off"
+          required
+        />
+      </div>
+      <button type="submit"><span>Search</span><span aria-hidden="true">→</span></button>
     </form>
 
-    <p id="message" class="message"></p>
+    <p id="message" class="message" role="status" aria-live="polite"></p>
 
-    <section id="weatherCard" class="weather-card hidden">
+    <section id="weatherCard" class="weather-card hidden" aria-live="polite">
       <div class="location-row">
-        <h2 id="location"></h2>
+        <div>
+          <p class="section-label">CURRENT WEATHER</p>
+          <h2 id="location"></h2>
+        </div>
+        <span class="location-pin" aria-hidden="true">⌖</span>
       </div>
 
       <div class="weather-main">
         <img id="weatherIcon" src="" alt="Weather icon" />
-        <p id="description" class="description"></p>
+        <div>
+          <p id="temperature" class="temperature"></p>
+          <p id="description" class="description"></p>
+        </div>
       </div>
-
-      <p id="temperature" class="temperature"></p>
 
       <div class="details">
         <div class="detail-box">
+          <span class="detail-icon" aria-hidden="true">◒</span>
           <span>Feels like</span>
           <strong id="feelsLike"></strong>
         </div>
         <div class="detail-box">
+          <span class="detail-icon" aria-hidden="true">♨</span>
           <span>Humidity</span>
           <strong id="humidity"></strong>
         </div>
         <div class="detail-box">
+          <span class="detail-icon" aria-hidden="true">≋</span>
           <span>Wind speed</span>
           <strong id="windSpeed"></strong>
         </div>
       </div>
     </section>
+
+    <p class="footer-note">Powered by OpenWeatherMap</p>
   </main>
 
   <script src="script.js"></script>
